@@ -20,7 +20,7 @@ class _MainLayoutState extends State<MainLayout> {
 
   final List<Widget> _widgetOptions = [
     HomeScreen(),
-    MemoScreen(),
+    // MemoScreen(),
     HintScreen(),
     DocumentScreen(),
   ];
@@ -33,7 +33,7 @@ class _MainLayoutState extends State<MainLayout> {
   }
 
   final List<String> _titleList = [
-    '홈','메모장', '힌트', '문서'
+    '홈', '힌트', '문서'
   ];
   
   @override
@@ -57,10 +57,10 @@ class _MainLayoutState extends State<MainLayout> {
             label: '홈',
             icon: Icon(Icons.home_filled),
           ),
-          BottomNavigationBarItem(
-            label: '메모장',
-            icon: Icon(Icons.edit),
-          ),
+          // BottomNavigationBarItem(
+          //   label: '메모장',
+          //   icon: Icon(Icons.edit),
+          // ),
           BottomNavigationBarItem(
             label: '암호해독',
             icon: Icon(Icons.search),

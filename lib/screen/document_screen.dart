@@ -53,7 +53,6 @@ class DocumentScreen extends StatelessWidget {
                     Text('2. T + T = 5'),
                     Text('3. F + T = 7'),
                     Text('4. N + O = 10'),
-                    Text('5. E + N = 17'),
                   ],
                 ),
               ),
@@ -61,10 +60,10 @@ class DocumentScreen extends StatelessWidget {
                 column: Column(
                   children: [
                     Text('1. 초록색은 안전하다'),
-                    Text('2. 붉은색 중에 하얀색이 있으면 붉은색을 조심해라'),
+                    Text('2. 파란색 중에 하얀색이 있으면 파란색을 조심해라'),
                     Text('3. 붉은색과 노란색과 하얀색이 있으면 안전하다.'),
                     Text('4. 붉은색만 있으면 위험하다.'),
-                    Text('5. 하얀색 중에 붉은색이 있으면 붉은색을 살펴봐라.'),
+                    Text('5. 하얀색과 붉은색이 있으면 붉은색을 살펴봐라.'),
                   ],
                 ),
               ),
@@ -97,6 +96,15 @@ class DocumentScreen extends StatelessWidget {
                     Text('3. 화난 마음 * 비겁한 마음'),
                     Text('4. 즐거운 마음 / 행복한 마음'),
                     Text('5. 설레는 마음 % 답답한 마음'),
+                  ],
+                ),
+              ),
+              _ContainerePart(
+                column: Column(
+                  children: [
+                    Text('1. 금은 해답을 품고 있다.'),
+                    Text('2. 은은 진실을 품고 있다.'),
+                    Text('3. 동은 거짓을 품고 있다.'),
                   ],
                 ),
               ),
@@ -151,7 +159,9 @@ class DocumentScreen extends StatelessWidget {
                   ],
                 ),
               ),
+
             ],
+
           ),
         ),
       ),

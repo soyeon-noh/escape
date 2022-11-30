@@ -24,32 +24,32 @@ class _HintScreenState extends State<HintScreen> {
     {
       'code': 'FF003',
       'type': 'image',
-      'content': '물고기 + 악기와 꽃다발',
+      'content': 'asset/img/musicFlowerFish.png',
     },
     {
       'code': 'SF001',
       'type': 'image',
-      'content': 'musicBox.png',
+      'content': 'asset/img/musicBox.png',
     },
     {
-      'code': '',
-      'type': '',
-      'content': '',
+      'code': 'SF002',
+      'type': 'text',
+      'content': '네 홍차에 독을 탔어. 파이는 먹어도 돼. 스프 밖에 무언가가 있어.',
     },
     {
-      'code': '',
-      'type': '',
-      'content': '',
+      'code': 'SF003',
+      'type': 'text',
+      'content': 'E + N = ?',
     },
     {
-      'code': '',
-      'type': '',
-      'content': '',
+      'code': 'TF001',
+      'type': 'text',
+      'content': '4월에는 꼭 내 맘을 전해야지. 벚꽃이 가득한 날 말이야. 1일은 만우절이니까... 2일이 어떨까?',
     },
     {
-      'code': '',
-      'type': '',
-      'content': '',
+      'code': 'TF002',
+      'type': 'image',
+      'content': 'asset/img/diary.png',
     },
     {
       'code': '',
@@ -104,7 +104,7 @@ class _HintScreenState extends State<HintScreen> {
                 onPressed: () {
                   String code;
                   String type = 'text';
-                  String? content = '잘못된 코드입니다.';
+                  String content = '잘못된 코드입니다.';
                   for (Map codeMap in codeMapList){
                     type = codeMap['type'];
 
@@ -114,11 +114,12 @@ class _HintScreenState extends State<HintScreen> {
                     }
                     print('$type $content');
                   }
+
                   showDialog(
                       context: context,
                       builder: (context) {
                         return AlertDialog(
-                            content: Text(content!));
+                            content: type=='text' ? Text(content!): Image.asset(content));
                       });
                 },
                 child: Text(

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "593152243744",
+    "project_id": "kodeongee-escape-1",
+    "storage_bucket": "kodeongee-escape-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:593152243744:android:ba36dbbc6b6afcc97a6445",
+        "android_client_info": {
+          "package_name": "com.kodeongee.escape.escape"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "593152243744-d7ur85nrdfr64i7cp7i5vvgn56apbs0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCh8mqkEE0mid8A-fIFMy_ZpMHt7ap7ZPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "593152243744-d7ur85nrdfr64i7cp7i5vvgn56apbs0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class HintScreen extends StatefulWidget {
@@ -8,63 +10,25 @@ class HintScreen extends StatefulWidget {
 }
 
 class _HintScreenState extends State<HintScreen> {
+  // firebase
+  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  // textField
   final textEditingControlle = TextEditingController();
 
-  List<Map> codeMapList = [
-    {
-      'code': 'FF001',
-      'type': 'text',
-      'content': '날 사랑하는 만큼 악기를 선물해 준다고 했죠. 매일 밤 하나씩 세본답니다. 당신의 마음이 어느정도인지.',
-    },
-    {
-      'code': 'FF002',
-      'type': 'text',
-      'content': '당신의 말은 다 거짓말이었어요. 내 마음이 담긴 꽃다발의 꽃을 하나씩 꺾으면서 매일 밤 잠에 듭니다.'
-    },
-    {
-      'code': 'FF003',
-      'type': 'image',
-      'content': 'asset/img/musicFlowerFish.png',
-    },
-    {
-      'code': 'SF001',
-      'type': 'image',
-      'content': 'asset/img/musicBox.png',
-    },
-    {
-      'code': 'SF002',
-      'type': 'text',
-      'content': '네 홍차에 독을 탔어. 파이는 먹어도 돼. 스프 밖에 무언가가 있어.',
-    },
-    {
-      'code': 'SF003',
-      'type': 'text',
-      'content': 'E + N = ?',
-    },
-    {
-      'code': 'TF001',
-      'type': 'text',
-      'content': '4월에는 꼭 내 맘을 전해야지. 벚꽃이 가득한 날 말이야. 1일은 만우절이니까... 2일이 어떨까?',
-    },
-    {
-      'code': 'TF002',
-      'type': 'image',
-      'content': 'asset/img/diary.png',
-    },
-    {
-      'code': '',
-      'type': '',
-      'content': '',
-    },
-    {
-      'code': '',
-      'type': '',
-      'content': '',
-    },
-  ];
+
 
   @override
   Widget build(BuildContext context) {
+    Future<Map<String, dynamic>?> getData(String code) async{
+      final decodeCol = FirebaseFirestore.instance.collection("decode").doc('$code');
+      final data = await decodeCol.get().then((value){
+        return value.data();
+      });
+
+      return data;
+    };
+
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -101,18 +65,20 @@ class _HintScreenState extends State<HintScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
               child: ElevatedButton(
-                onPressed: () {
-                  String code;
+                onPressed: () async {
                   String type = 'text';
-                  String content = '잘못된 코드입니다.';
-                  for (Map codeMap in codeMapList){
-                    type = codeMap['type'];
+                  String content = '존재하지 않는 암호입니다.';
+                  if(getData(textEditingControlle.text) != null){
+                    Map<String, dynamic>? data = await getData(textEditingControlle.text) ;
 
-                    if(codeMap['code'] == textEditingControlle.text){
-                      content = codeMap['content'];
-                      break;
+                    if(data != null){
+                      print("뭐여");
+
+                      type = data['type'];
+                      content = data['content'];
+
+                      print('$type $content');
                     }
-                    print('$type $content');
                   }
 
                   showDialog(
